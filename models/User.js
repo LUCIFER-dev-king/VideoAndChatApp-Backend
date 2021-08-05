@@ -10,5 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
+  User.associate = (models) => {
+    User.hasMany(models.Conversation, {
+      onDelte: "cascade",
+    });
+  };
+
   return User;
 };
