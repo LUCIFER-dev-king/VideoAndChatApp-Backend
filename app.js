@@ -4,6 +4,9 @@ const db = require("./models");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/auth");
+const convRoutes = require("./routes/conversation");
+const userRoutes = require("./routes/user");
+const messageRoutes = require("./routes/message");
 
 app.use(cors());
 app.use(express.json());
@@ -13,6 +16,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", authRoutes);
+app.use("/api", convRoutes);
+app.use("/api", userRoutes);
+app.use("/api", messageRoutes);
 
 const PORT = process.env.PORT || 8080;
 db.sequelize.sync().then(() => {

@@ -24,7 +24,10 @@ exports.signin = async (req, res) => {
       res.send("Username and Password not correct");
       return;
     }
-    const accestoken = sign({ username: user.username, id: user.id }, "secret");
-    res.json(accestoken);
+    const accestoken = sign(
+      { username: user.username, id: user.id },
+      "videochatapp"
+    );
+    res.json({ ...user, accestoken });
   });
 };
