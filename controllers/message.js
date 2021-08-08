@@ -12,7 +12,7 @@ exports.createMsg = async (req, res) => {
 
 exports.getAllMsg = async (req, res) => {
   const conversationId = req.params.convId;
-  const { count, rows } = await Messsage.findAndCountAll({
+  const { count, rows } = await Message.findAndCountAll({
     where: { ConversationId: conversationId },
   });
   res.json({ count, rows });
