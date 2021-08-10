@@ -3,6 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     senderId: {
       type: DataTypes.STRING,
     },
+    receiverId: {
+      type: DataTypes.STRING,
+    },
     message: {
       type: DataTypes.STRING,
     },

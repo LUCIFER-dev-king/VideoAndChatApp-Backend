@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const Conversation = sequelize.define("Conversation", {
-    senderId: {
-      type: DataTypes.STRING,
-    },
     receiverId: {
       type: DataTypes.STRING,
     },

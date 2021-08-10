@@ -1,12 +1,8 @@
 const { Message } = require("../models");
 
 exports.createMsg = async (req, res) => {
-  const { conversationId, senderId, message } = req.body;
-  Message.create({
-    ConversationId: conversationId,
-    senderId: senderId,
-    message: message,
-  });
+  const { ConversationId, senderId, receiverId, message } = req.body;
+  Message.create({ ConversationId, senderId, receiverId, message });
   res.json("Message created");
 };
 
