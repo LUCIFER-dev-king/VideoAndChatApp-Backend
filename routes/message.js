@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { createMsg, getAllMsg } = require("../controllers/message");
+const { createMsg, getAllMsg, createImg } = require("../controllers/message");
 
 router.post("/createMsg", createMsg);
 

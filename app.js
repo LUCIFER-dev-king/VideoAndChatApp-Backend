@@ -52,10 +52,13 @@ io.on("connection", (socket) => {
 
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.get("/", (req, res) => {
-  res.send("Video and ChatApp Backend");
-});
+app.use(
+  bodyParser.urlencoded({
+    limit: "50mb",
+    parameterLimit: 100000,
+    extended: true,
+  })
+);
 
 app.use("/api", authRoutes);
 app.use("/api", convRoutes);
