@@ -44,6 +44,19 @@ io.on("connection", (socket) => {
     );
   });
 
+  socket.on("callUser", ({ fromId, toId, signal }) => {
+    io.to(getUser(toId)).emit("callUser", {
+      fromId,
+      signal,
+    });
+    // console.log({ fromId, toId, signal });
+  });
+
+  socket.on("answerCall", ({ toId, signal }) => {
+    io.to(getUser(toId)).emit("callAccepted", signal);
+    console.log({ toId, signal });
+  });
+
   socket.on("disconnect", () => {
     removeUser(socket.id);
     io.emit("activeUsers", users);

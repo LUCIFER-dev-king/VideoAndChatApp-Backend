@@ -35,6 +35,8 @@ exports.createMsg = (req, res) => {
       newMsg.data = fs.readFileSync(files.photo.path);
       newMsg.save();
     }
+
+    res.json(newMsg);
   });
 };
 
