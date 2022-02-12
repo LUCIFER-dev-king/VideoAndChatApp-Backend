@@ -8,9 +8,9 @@ const convRoutes = require("./routes/conversation");
 const userRoutes = require("./routes/user");
 const messageRoutes = require("./routes/message");
 const cookieParser = require("cookie-parser");
-const passport = require("passport");
+// const passport = require("passport");
 const httpServer = require("http").createServer(app);
-const session = require("express-session");
+// const session = require("express-session");
 const { User } = require("./models");
 
 const io = require("socket.io")(httpServer, {
@@ -93,8 +93,8 @@ io.on("connection", (socket) => {
 //     secret: "Google",
 //   })
 // );
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 app.use(
   cors({
     origin: true,
@@ -117,7 +117,7 @@ app.use("/api", userRoutes);
 app.use("/api", messageRoutes);
 
 const PORT = process.env.PORT || 8080;
-db.sequelize.sync().then(() => {
+db.sequelize.authenticate().then(() => {
   httpServer.listen(PORT, () => {
     console.log(`Server running at PORT: ${PORT}`);
   });
