@@ -86,13 +86,13 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    secret: "Google",
-  })
-);
+// app.use(
+//   session({
+//     resave: false,
+//     saveUninitialized: true,
+//     secret: "Google",
+//   })
+// );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(
