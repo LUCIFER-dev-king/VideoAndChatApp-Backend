@@ -4,9 +4,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    email: {
+      type: DataTypes.STRING,
+    },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    googleId: {
+      type: DataTypes.STRING,
+    },
+    profileUrl: {
+      type: DataTypes.STRING,
     },
   });
 

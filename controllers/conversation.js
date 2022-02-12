@@ -1,15 +1,16 @@
 const { Conversation } = require("../models");
 const { Op } = require("sequelize");
 
-exports.createConversation = (req, res) => {
-  const { userId, receiverId } = req.body;
+exports.createConversation = async (req, res) => {
+  const { userId, receiverId, coversationLinkId } = req.body;
 
-  Conversation.create({
+  const conv = await Conversation.create({
     UserId: userId,
     receiverId: receiverId,
+    coversationLinkId: coversationLinkId,
   });
 
-  res.json("Conversation created");
+  res.status(200).json({ conv });
 };
 
 exports.getAllConversation = async (req, res) => {

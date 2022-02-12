@@ -3,6 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     receiverId: {
       type: DataTypes.STRING,
     },
+    coversationLinkId: {
+      type: DataTypes.INTEGER,
+    },
   });
 
   Conversation.associate = (models) => {

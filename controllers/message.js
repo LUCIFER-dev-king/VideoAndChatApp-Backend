@@ -30,6 +30,7 @@ exports.createMsg = (req, res) => {
       senderId,
       receiverId,
       message,
+      created: createdAt,
     });
     if (files.photo) {
       newMsg.data = fs.readFileSync(files.photo.path);
