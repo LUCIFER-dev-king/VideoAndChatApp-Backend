@@ -23,14 +23,13 @@ exports.createMsg = (req, res) => {
         err: "There is a problem with image",
       });
     }
-    const { ConversationId, senderId, receiverId, message, createdAt } = fields;
-    console.log(ConversationId, senderId, receiverId, message, createdAt);
+    const { ConversationId, senderId, receiverId, message, created } = fields;
     var newMsg = await Message.create({
       ConversationId,
       senderId,
       receiverId,
       message,
-      created: createdAt,
+      created,
     });
     if (files.photo) {
       newMsg.data = fs.readFileSync(files.photo.path);
